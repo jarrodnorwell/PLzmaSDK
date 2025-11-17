@@ -12,7 +12,7 @@ let package = Package(
     targets: [
         .target(name: "libplzma",
                 path: "src",
-                publicHeadersPath: "src/C",
+                publicHeadersPath: "C",
                 cSettings: [
                     .define("LIBPLZMA_VERSION_BUILD", to: "1356"),
                     .unsafeFlags(["-fPIC"])
