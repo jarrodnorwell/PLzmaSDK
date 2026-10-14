@@ -1,5 +1,5 @@
 /* 7zTypes.h -- Basic types
-2024-01-24 : Igor Pavlov : Public domain */
+: Igor Pavlov : Public domain */
 
 #ifndef ZIP7_7Z_TYPES_H
 #define ZIP7_7Z_TYPES_H
@@ -48,8 +48,9 @@ typedef int32_t SRes;
 
 
 #ifdef _MSC_VER
+  #define MY_ALIGN_IN_STRUCT(n) __declspec(align(n))
   #if _MSC_VER > 1200
-    #define MY_ALIGN(n) __declspec(align(n))
+    #define MY_ALIGN(n) MY_ALIGN_IN_STRUCT(n)
   #else
     #define MY_ALIGN(n)
   #endif
@@ -60,6 +61,7 @@ typedef int32_t SRes;
   #define MY_ALIGN(n) alignas(n)
   */
   #define MY_ALIGN(n) __attribute__ ((aligned(n)))
+  #define MY_ALIGN_IN_STRUCT(n) MY_ALIGN(n)
 #endif
 
 
@@ -174,13 +176,8 @@ typedef uint8_t Byte;
 typedef int16_t Int16;
 typedef uint16_t UInt16;
 
-#ifdef Z7_DECL_Int32_AS_long
 typedef int32_t Int32;
 typedef uint32_t UInt32;
-#else
-typedef int32_t Int32;
-typedef uint32_t UInt32;
-#endif
 
 
 #ifndef _WIN32
@@ -243,11 +240,7 @@ typedef uint64_t UInt64;
 #define UINT64_CONST(n) n
 
 
-#ifdef Z7_DECL_SizeT_AS_unsigned_int
 typedef size_t SizeT;
-#else
-typedef size_t SizeT;
-#endif
 
 /*
 #if (defined(_MSC_VER) && _MSC_VER <= 1200)
@@ -556,6 +549,7 @@ struct ISzAlloc
 
 
 #define Z7_memset_0_ARRAY(a)  memset((a), 0, sizeof(a))
+#define Z7_memset_0_VAR(a)  memset(&(a), 0, sizeof(a))
 
 #ifndef Z7_ARRAY_SIZE
 #define Z7_ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))

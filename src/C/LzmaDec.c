@@ -1,5 +1,5 @@
 /* LzmaDec.c -- LZMA Decoder
-2023-04-07 : Igor Pavlov : Public domain */
+: Igor Pavlov : Public domain */
 
 #include "Precomp.h"
 
@@ -7,10 +7,6 @@
 
 /* #include "CpuArch.h" */
 #include "LzmaDec.h"
-
-#if (defined(__arm64__) && __arm64__) || (defined(__arm64) && __arm64)
-#define Z7_LZMA_DEC_OPT 1
-#endif
 
 // #define kNumTopBits 24
 #define kTopValue ((UInt32)1 << 24)
@@ -466,8 +462,10 @@ int Z7_FASTCALL LZMA_DECODE_REAL(CLzmaDec *p, SizeT limit, const Byte *bufLimit)
       if (state >= kNumStates)
       {
         UInt32 distance;
-        prob = probs + PosSlot +
-            ((len < kNumLenToPosStates ? len : kNumLenToPosStates - 1) << kNumPosSlotBits);
+        {
+          const unsigned temp = (len < kNumLenToPosStates ? len : kNumLenToPosStates - 1) << kNumPosSlotBits;
+          prob = probs + PosSlot + temp;
+        }
         TREE_6_DECODE(prob, distance)
         if (distance >= kStartPosModelIndex)
         {
@@ -861,9 +859,10 @@ static ELzmaDummy LzmaDec_TryDummy(const CLzmaDec *p, const Byte *buf, const Byt
       if (state < 4)
       {
         unsigned posSlot;
-        prob = probs + PosSlot +
-            ((len < kNumLenToPosStates - 1 ? len : kNumLenToPosStates - 1) <<
-            kNumPosSlotBits);
+        {
+          const unsigned temp = (len < kNumLenToPosStates - 1 ? len : kNumLenToPosStates - 1) << kNumPosSlotBits;
+          prob = probs + PosSlot + temp;
+        }
         TREE_DECODE_CHECK(prob, 1 << kNumPosSlotBits, posSlot)
         if (posSlot >= kStartPosModelIndex)
         {
@@ -871,7 +870,8 @@ static ELzmaDummy LzmaDec_TryDummy(const CLzmaDec *p, const Byte *buf, const Byt
 
           if (posSlot < kEndPosModelIndex)
           {
-            prob = probs + SpecPos + ((2 | (posSlot & 1)) << numDirectBits);
+            const unsigned temp = (2 | (posSlot & 1)) << numDirectBits;
+            prob = probs + SpecPos + temp;
           }
           else
           {

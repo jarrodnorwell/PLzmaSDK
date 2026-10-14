@@ -14,11 +14,11 @@ let package = Package(
                 path: "src",
                 publicHeadersPath: "C",
                 cSettings: [
-                    .define("LIBPLZMA_VERSION_BUILD", to: "1356"),
+                    .define("LIBPLZMA_VERSION_BUILD", to: "1466"),
                     .unsafeFlags(["-fPIC"])
                 ],
                 cxxSettings: [
-                    .define("LIBPLZMA_VERSION_BUILD", to: "1356"),
+                    .define("LIBPLZMA_VERSION_BUILD", to: "1466"),
                     .unsafeFlags(["-fPIC", "-fno-rtti"])
                 ]),
         .target(name: "PLzmaSDK",

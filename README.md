@@ -1,16 +1,16 @@
 ![platform](https://img.shields.io/badge/platform-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS%20%7C%20Android%20%7C%20Windows%20%7C%20Linux%20%7C%20Unix-lightgrey.svg)
 ![language](https://img.shields.io/badge/language-Swift%20%7C%20Objective%E2%80%93C%20%7C%20C%20%7C%20C++%20%7C%20JavaScript-brightgreen.svg)
-[![Cocoapods](https://img.shields.io/cocoapods/l/PLzmaSDK)](https://cocoapods.org/pods/PLzmaSDK)
-[![Cocoapods](https://img.shields.io/cocoapods/v/PLzmaSDK)](https://cocoapods.org/pods/PLzmaSDK)
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager)
+[![Cocoapods](https://img.shields.io/cocoapods/l/PLzmaSDK)](https://cocoapods.org/pods/PLzmaSDK)
 [![GitHub release](https://img.shields.io/github/release/OlehKulykov/PLzmaSDK.svg)](https://github.com/OlehKulykov/PLzmaSDK/releases)
+[![Cocoapods](https://img.shields.io/cocoapods/v/PLzmaSDK)](https://cocoapods.org/pods/PLzmaSDK)
 [![node-current](https://img.shields.io/node/v/plzmasdk)](https://www.npmjs.com/package/plzmasdk)
 [![Build Status](https://travis-ci.org/OlehKulykov/PLzmaSDK.svg?branch=master)](https://travis-ci.org/OlehKulykov/PLzmaSDK)
 [![Build status](https://ci.appveyor.com/api/projects/status/1mb5w6nlht1ar2p8/branch/master?svg=true)](https://ci.appveyor.com/project/OlehKulykov/plzmasdk/branch/master)
 
 
 **P**LzmaSDK is (**P**ortable, **P**atched, **P**ackage, cross-**P**-latform) Lzma SDK.
-Based on original [LZMA SDK] version 24.09 and patched for unix platforms.
+Based on original [LZMA SDK] version 26.03 and patched for unix platforms.
 Available for all Apple's platforms(iOS, macOS, tvOS, watchOS), Android, Windows, Linux and any unix'es.
 
 
@@ -88,7 +88,7 @@ end
     "npm": ">=6.0.0"
   },
   "dependencies": {
-    "plzmasdk": "1.5.1"
+    "plzmasdk": "1.6.2"
   }
 }
 ```
@@ -567,7 +567,7 @@ By using this all you are accepting original [LZMA SDK] and MIT license (*see be
 
 The MIT License (MIT)
 
-Copyright (c) 2015 - 2025 Oleh Kulykov <olehkulykov@gmail.com>
+Copyright (c) 2015 - 2026 Oleh Kulykov <olehkulykov@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

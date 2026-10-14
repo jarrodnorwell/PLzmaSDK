@@ -2,7 +2,7 @@
 #
 # The MIT License (MIT)
 #
-# Copyright (c) 2015 - 2025 Oleh Kulykov <olehkulykov@gmail.com>
+# Copyright (c) 2015 - 2026 Oleh Kulykov <olehkulykov@gmail.com>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -36,12 +36,12 @@ set(CMAKE_CXX_STANDARD 11)
 set(PACKAGE "libplzma")
 set(CPACK_PACKAGE_NAME "${PACKAGE}")
 set(CPACK_PACKAGE_VERSION_MAJOR "1")
-set(CPACK_PACKAGE_VERSION_MINOR "5")
-set(CPACK_PACKAGE_VERSION_PATCH "1")
+set(CPACK_PACKAGE_VERSION_MINOR "6")
+set(CPACK_PACKAGE_VERSION_PATCH "2")
 set(CPACK_PACKAGE_VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}")
 set(CPACK_PACKAGE_VENDOR "olehkulykov@gmail.com")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "${PACKAGE} ${PACKAGE_VERSION}")
-set(SOVERSION "1.5.1")
+set(SOVERSION "1.6.2")
 set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}")
 set(VERSION "${CPACK_PACKAGE_VERSION}")
 
@@ -453,7 +453,7 @@ set(LIBPLZMA_INTERNAL_HEADERS
   src/CPP/Common/StringToInt.h
   src/CPP/Common/UTFConvert.h
   src/CPP/Common/Wildcard.h
-  src/CPP/Windows/Defs.h
+  src/CPP/Windows/WinDefs.h
   src/CPP/Windows/FileDir.h
   src/CPP/Windows/FileFind.h
   src/CPP/Windows/FileIO.h
@@ -777,7 +777,7 @@ source_group("C"
 # ---- grop: Lzma CPP/Windows headers and sources ----
 source_group("CPP/Windows"
   FILES
-  src/CPP/Windows/Defs.h
+  src/CPP/Windows/WinDefs.h
   src/CPP/Windows/FileDir.cpp
   src/CPP/Windows/FileDir.h
   src/CPP/Windows/FileFind.cpp

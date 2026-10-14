@@ -13,14 +13,14 @@ class CMyComPtr
   T * _p = nullptr;
 #else
   T* _p;
-#endif
+#endif // LIBPLZMA
 public:
 #if defined(LIBPLZMA)
   CMyComPtr() noexcept {}
   CMyComPtr(CMyComPtr<T> && lp) noexcept : _p(lp._p) { lp._p = nullptr; }
 #else
   CMyComPtr(): _p(NULL) {}
-#endif
+#endif // LIBPLZMA
   CMyComPtr(T* p) throw() { if ((_p = p) != NULL) p->AddRef(); }
   CMyComPtr(const CMyComPtr<T>& lp) throw() { if ((_p = lp._p) != NULL) _p->AddRef(); }
   ~CMyComPtr() { if (_p) _p->Release(); }
@@ -697,6 +697,6 @@ EXTERN_C_END
   Z7_IFACES_IMP_UNK_2(ISequentialInStream, IInStream) \
 
 
-#define k_My_HRESULT_WritingWasCut 0x20000010
+#define k_My_HRESULT_WritingWasCut ((HRESULT)0x20000010)
 
 #endif
